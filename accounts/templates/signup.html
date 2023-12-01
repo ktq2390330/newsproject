@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% for error in field.errors %}
+<p style="color: red">{{error}}</p>
+{% endfor %}
+
+
+{% block title %}サインアップ{% endblock  %}
+
+    {% block contents %}
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col offset-2">
+                <h3>サインアップ</h3>
+                    <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <P>
+                        {{ field.label_tag }}<br>
+                        {{field}}
+                        {% if field.help_text %}
+                        <small style"color: grey">{{field.help_text}}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p style="color: red">{{error}}</p>
+                    {% endfor %}
+                </p>
+                {% endfor %}
+                <p style="color:red">
+                    ※メールアドレスはパスワードをリセットする際に必要になりますので、登録をお願いします。
+                </P>
+                <input type="submit" value="Sign up">
+            </form>
+            <br>
+            <P><a href="{% url "news:index" %}">
+                登録をやめてトップページに戻る</a>
+            </p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

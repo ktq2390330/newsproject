@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}ニュースの削除{% endblock  %}
+
+    {% block contents %}
+    <br>
+    <div class='container'>
+        <div class='row'>
+            <div col oddset-3>
+                <form method='POST'>
+                <br>
+                <p>削除してもいいですか?</p>
+                {% csrf_token %}
+                <button class='btn btn-primary my-2'
+                        type='submit'>削除</button>
+                <a href='{% url "news:news_detail" object.pk %}'
+                    class='btn btn-primary my-2'>キャンセル</a>
+            </div>
+        </div>
+    </div>
+    {% endblock  %}
