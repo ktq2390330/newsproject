@@ -90,7 +90,6 @@
 
       footer.text-body-secondary {
         background-color: #f6f6f6;
-        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
@@ -140,7 +139,7 @@
                     calss='text-white'>サインアップ</li>
             <li><a href='{% url "accounts:login" %}'
                     calss='text-white'>ログイン</li>
-            <li><a href='mailto:admin@example.com'
+            <li><a href='{% url "news:contact" %}'
                     class='text-white'>お問い合わせ</a></li>
             {% endif %}
           </ul>
